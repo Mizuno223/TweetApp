@@ -1,9 +1,5 @@
-
-<% posts.each do |post| %>
+<% @posts.each do |post| %>
 <div>
-    <%= post %>
+    <%= post.content %>
 </div>
 <% end %>
-
-<a href="/">TweetApp</a>
-<a href="/about">TweetAppとは</a>
