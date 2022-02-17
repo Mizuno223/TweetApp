@@ -9,9 +9,12 @@ class PostsController < ApplicationController
   end
   def create
     @post = Post.new(content: params[:content])
-    @post.save
-    flash[:notice] = "Posting completed"
-    redirect_to("/posts")
+    if @post.save
+      flash[:notice] = "Posting completed"
+      redirect_to("/posts")
+    else
+      render("posts/new")
+    end
   end
   def edit
     @post = Post.find_by(id: params[:id])
