@@ -1,5 +1,5 @@
 <%= form_tag("/posts/#{@post.id}/update") do %>
-    <%= @post.errors.full_messages.each do |message| %>
+    <% @post.errors.full_messages.each do |message| %>
         <div>
             <%= message %>
         </div>
