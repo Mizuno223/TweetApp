@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(content: params[:content])
     @post.save
+    flash[:notice] = "Posting completed"
     redirect_to("/posts")
   end
   def edit
@@ -19,6 +20,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
     if @post.save
+      flash[:notice] = "Editing completed"
       redirect_to("/posts")
     else
       render("posts/edit")
@@ -27,6 +29,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
+    flash[:notice] = "Deleting completed"
     redirect_to("/posts")
   end
 end
