@@ -34,7 +34,7 @@ class PostsController < ApplicationController
       render("posts/edit")
     end
   end
-  
+
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
