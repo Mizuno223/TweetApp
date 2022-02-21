@@ -1,3 +1,4 @@
 class User < ApplicationRecord
-    #validates :email, :name {uniqueness: true, presence: true}
+    validates :email, {uniqueness: true, presence: true}
+    validates :name, {presence: true}
 end
