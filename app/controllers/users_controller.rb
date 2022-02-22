@@ -8,13 +8,14 @@ class UsersController < ApplicationController
   end
 
   def signup
+    @user = User.new(name: params[:name], email: params[:email])
   end
 
   def create
-    @post = User.new(name: params[:name], email: params[:email])
-    if @post.save
+    @user = User.new(name: params[:name], email: params[:email])
+    if @user.save
       flash[:notice] = "Registration completed"
-      redirect_to("/users/#{@post.id}")
+      redirect_to("/users/#{@user.id}")
     else
       render("signup")
     end
