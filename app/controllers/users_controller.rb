@@ -20,4 +20,20 @@ class UsersController < ApplicationController
       render("signup")
     end
   end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    @user.name = params[:name]
+    @user.email = params[:email]
+    if @user.save
+      flash[:notice] = "Editing completed"
+      redirect_to("/users")
+    else
+      render("users/edit")
+    end
+  end
 end

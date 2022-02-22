@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   get "users/:id" => "users#show"
   get "signup" => "users#signup"
   post "users/create" => "users#create"
+  get "users/:id/edit" => "users#edit"
+  post "users/:id/update" => "users#update"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
