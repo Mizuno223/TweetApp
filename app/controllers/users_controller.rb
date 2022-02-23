@@ -12,7 +12,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(name: params[:name], email: params[:email])
+    @user = User.new(
+      name: params[:name], 
+      email: params[:email],
+      image_name: "kkrn_icon_user_1.png"
+    )
     if @user.save
       flash[:notice] = "Registration completed"
       redirect_to("/users/#{@user.id}")
