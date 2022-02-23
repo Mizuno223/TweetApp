@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'user/index'
+  #get 'users/index'
+  #get 'user/index'
   get "/" => "home#top"
   get "about" => "home#about"
 
-  get "posts" => "posts#index"
+  get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
   post "posts/create" => "posts#create"
   get "posts/:id" => "posts#show"
@@ -21,5 +21,6 @@ Rails.application.routes.draw do
 
   get "login" => "users#login_form"
   post "login" => "users#login"
+  post "logout" => "users#logout"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
