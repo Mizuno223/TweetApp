@@ -9,9 +9,13 @@
     <%= @post.created_at %>    
 </div>
 <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-    <%= link_to("いいね！済み", "/likes/#{@post.id}/destroy", {method: "post"}) %>
+    <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+        <i class="fa fa-heart"></i>
+    <% end %>
 <% else %>
-    <%= link_to("いいね！", "/likes/#{@post.id}/create", {method: "post"}) %>
+    <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+        <i class="fa-regular fa-heart"></i>
+    <% end %>
 <% end %>
 <% if @post.user_id == @current_user.id %>
     <%= link_to("編集", "/posts/#{@post.id}/edit") %>
