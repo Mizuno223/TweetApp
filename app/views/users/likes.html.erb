@@ -5,19 +5,22 @@
     <% if @user.id == @current_user.id %>
         <%= link_to("編集", "/users/#{@user.id}/edit")%>
     <% end %>
-    
-    <p>投稿</p>
-    <%= link_to("いいね！", "/users/#{@user.id}/likes") %>
-    <% @user.posts.each do |post| %>
+    <div>
+        <%= link_to("投稿", "/users/#{@user.id}") %>
+        <p style="display:inline">いいね！</p>
+    </div>
+    <% @likes.each do |like| %>
+    <% post = Post.find_by(id: like.post_id) %>
     <div class="posts-show-item">
         <div class="post-user-name">
             <img src="<%= "/user_images/#{post.user.image_name}" %>">
             <%= link_to(post.user.name, "/users/#{post.user.id}") %>
         </div>
     </div>
-    <div>
         <%= post.content %>
-        <%= post.created_at %>    
-    </div>
     <% end %>
 </div>
+
+
+
+
